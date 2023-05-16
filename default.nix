@@ -16,15 +16,30 @@ let
     cli = [
       jq
       nixpkgs-fmt
+      curl
+      ngrok
+      just
+      bashInteractive_5
+      gron
     ];
     python = [ (python310.withPackages (p: with p; [ 
+      # http
+      httpx
       requests
-      python-dotenv
+  
+      # integrations
       atlassian-python-api
       jira
-      js2py
+     
+
+      # webserver
       fastapi
       uvicorn
+      # general/text
+      anybadge
+      tabulate
+      python-dotenv
+
       
       ])) ];
   };
