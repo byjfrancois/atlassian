@@ -6,7 +6,14 @@
         sha256 = "0p6mz1mm9p6ywvjnhc3ffv11f343hpgznqagrrhnnzhxa4hmd0zp";
       }
     )
-    { }
+
+    { 
+      config = {
+        allowUnfree = true;
+      };
+      overlays = [ (import ./overlays.nix) ];
+
+    }
 }:
 let
   inherit (jacobi.hax) ifIsLinux ifIsDarwin;
@@ -21,11 +28,15 @@ let
       just
       bashInteractive_5
       gron
+      black
+      mypy
+
     ];
     python = [ (python310.withPackages (p: with p; [ 
       # http
       httpx
       requests
+      starlette
   
       # integrations
       atlassian-python-api
@@ -35,14 +46,16 @@ let
       # webserver
       fastapi
       uvicorn
+
       # general/text
       anybadge
       tabulate
       python-dotenv
 
-      
+      pandas
+      packaging
       ])) ];
-  };
+  };  
 
   env = jacobi.enviro {
     inherit name tools;
