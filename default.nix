@@ -23,8 +23,8 @@ let
       atlassian-python-api
       jira
       js2py
-      flask
-      django
+      fastapi
+      uvicorn
       
       ])) ];
   };
