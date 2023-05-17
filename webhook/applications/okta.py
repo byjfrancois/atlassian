@@ -6,9 +6,9 @@ import os
 
 token = os.getenv("OKTA_TOKEN","")
 
-# config = {
-#     "orgUrl": OKTA_URL;
-#     "token": token
-# }
+config = {
+    "orgUrl": OKTA_URL;
+    "token": token
+}
 
-# okta_client = OktaClient(config)
+okta_client = OktaClient(config)
